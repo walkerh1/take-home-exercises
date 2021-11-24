@@ -3,8 +3,8 @@
 
 def max_money(n, k):
     """
-    Finds the maximum money that can be received for any 
-    number of classmates, n, and any unlucky number, k.
+    Finds the maximum money that can be received for given 
+    number of classmates, n, and unlucky number, k.
     """
     mod = 10**9 + 7
     max_dollars = (n * (n+1)) / 2
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         n = int(input())
         k = int(input())
     except ValueError:
-        print("Please input integers only.")
+        print('Please input integers only.')
         exit(1)    
     else:
         print(max_money(n, k))

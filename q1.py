@@ -6,10 +6,11 @@
     # array.sort(key=lambda x: (frequencies[x], x))
 
 # This line works because python tuples have an order defined on them:
-# given two tuples, python first compares the elements in position i,
-# and if they're equal, it then compares the elements in position i+1,
-# and so on. The reason I went with a custom_comparator is because it
-# shows more explicitly the logic of the sorting algorithm.
+# given two tuples, python first compares the elements in position 0,
+# and if they're equal, it then compares the elements in position 1,
+# and so on. The reason I went with a custom_comparator instead is 
+# because it shows more explicitly the logic of the sorting algorithm,
+# and looks less like I just googled how to sort an array by frequency.
 
 
 from collections import defaultdict
@@ -25,9 +26,9 @@ def custom_sort(array):
     for number in array:
         frequencies[number] += 1
     
-    # This auxiliary function swaps an element with the element to its right
-    # if it has a higher frequency; and if it has the same frequency, swaps
-    # it only if it has a greater value.
+    # This function helps the sorting function swap an element with the
+    # element to its right if it has a higher frequency; and if it has
+    # the same frequency, swap it only if it has a greater value.
     def custom_comparator(num1, num2):
         freq1 = frequencies[num1]
         freq2 = frequencies[num2]
@@ -36,7 +37,7 @@ def custom_sort(array):
         else:
             return freq1 - freq2
     
-    # Creates and returns sorted version of list in O(nlogn) time.
+    # Creates and returns sorted version of array in O(nlogn) time.
     return sorted(array, key=cmp_to_key(custom_comparator))
 
 
@@ -61,5 +62,5 @@ if __name__ == '__main__':
             i += 1
         custom_sort_and_print(array)
     except ValueError:
-        print("Please input integers only.")
+        print('Please input integers only.')
         exit(1)
