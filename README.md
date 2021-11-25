@@ -1,7 +1,7 @@
 # take-home-exercises
 
 ## Q1
-Solution to this problem runs in O(nlogn) time. It uses python's built-in sorted() function, and defines a custom comparator.
+Solution to this problem runs in O(nlogn) time. It uses python's built-in sorted function, and defines a custom comparator.
 
 To run Q1, type the following command into the command-line:
 ```
@@ -10,7 +10,7 @@ $ python3 q1.py
 Then enter a value n for the number of elements in the array. Then enter, one at a time, the n numbers to sort. The sorted array will then be printed to stdout, one number per line.
 
 ## Q2
-Solution to this is more complex. I first observe that this problem is equivalent to finding the sequence m(1), m(2), m(3),..., m(n) where m(i) <= i for all 0 <= i <= n, such that the cumulative sum sequence, cs(m), corresponding to the sequence m, satisfies the following:
+I first observe that this problem is equivalent to finding the sequence m(1), m(2), m(3),..., m(n) where m(i) <= i for all 0 <= i <= n, such that the cumulative sum sequence, cs(m), corresponding to the sequence m, satisfies the following:
 - the unlucky number, k, does not appear anywhere as a term in cs(m), and
 - the last term in cs(m) is greater than or equal to the last term of the cumulative sum sequence corresponding to every other sequence m' that satisfies (i). (i.e. cs(m) results in the max amount of money amongst all the sequences that satisfy the unlucky number constraint.)
 
