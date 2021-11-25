@@ -34,8 +34,7 @@ def custom_sort(array):
         freq2 = frequencies[num2]
         if (freq1 == freq2):
             return num1 - num2
-        else:
-            return freq1 - freq2
+        return freq1 - freq2
     
     # Creates and returns sorted version of array in O(nlogn) time.
     return sorted(array, key=cmp_to_key(custom_comparator))
