@@ -10,7 +10,7 @@ $ python3 q1.py
 Then enter a value n for the number of elements in the array. Then enter, one at a time, the n numbers to sort. The sorted array will then be printed to stdout, one number per line.
 
 ## Q2
-I first observe that this problem is equivalent to finding the sequence m(1), m(2), m(3),..., m(n) where m(i) <= i for all 0 <= i <= n, such that the cumulative sum sequence, cs(m), corresponding to the sequence m, satisfies the following:
+I first observe that this problem is equivalent to finding the sequence m(1), m(2), m(3),..., m(n) where m(i) <= i for all 1 <= i <= n, such that the cumulative sum sequence, cs(m), corresponding to the sequence m, satisfies the following:
 - the unlucky number, k, does not appear anywhere as a term in cs(m), and
 - the last term in cs(m) is greater than or equal to the last term of the cumulative sum sequence corresponding to every other sequence m' that satisfies (i). (i.e. cs(m) results in the max amount of money amongst all the sequences that satisfy the unlucky number constraint.)
 
@@ -32,15 +32,15 @@ What we need to know is whether, given some n and k, there is some i <= n such t
 <pre>k = i*(i+1)/2</pre>
 We can rearrange this equation to get:
 <pre>0 = i^2 + i - 2k</pre>
-Then to solve for i > 0, we can apply the usual formula for solving quadratics, which simplifies to:
+Then to solve for i >= 1, we can apply the usual formula for solving quadratics, which simplifies to:
 <pre>i = (-1 + sqrt(1 + 8k))/2</pre>
-This will return some i>0. All we then need to do is check firstly whether i is an integer, and secondly whether i <= n (note that we always have i > 0 if k > 0). If it satisfies both these conditions, then the unlucky number is encountered during the collection of money, and so we return the value (b) above. If not, the unlucky number is not encountered, and we return the value (a). This algorithm runs in O(1) time and uses O(1) space.
+This will return some i >= 1 (since we always have k >= 1). Then all we need to do is check, firstly, whether i is an integer and, secondly, whether i <= n. If it satisfies both of these conditions, then the unlucky number is encountered during the collection of money, and so we return the value (b) above. If not, the unlucky number is not encountered, and we return the value (a). This algorithm runs in O(1) time and uses O(1) space.
 
 To run Q2, type the following command into the command-line:
 ```
 $ python3 q2.py
 ```
-Then enter a value n, and then enter a value for k. The result will be then be printed to stdout.
+Then enter a value n, *and then* enter a value for k. The result will be printed to stdout.
 
 ## Tests
 
